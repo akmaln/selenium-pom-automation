@@ -12,8 +12,9 @@ UI automation projects built with **Python + Selenium WebDriver**, structured ar
 ## What This Demonstrates
 
 - **POM structure** — page classes hold locators and actions; test files hold assertions and flow, keeping the two cleanly separated
+- **Shared base class** — common waits and actions (`click`, `find`, `enter_text`, `is_present`) live in a `BasePage` that every page inherits, keeping the page objects DRY
 - **Explicit waits** — `WebDriverWait` with expected conditions instead of `sleep()`, used heavily in the dynamic-controls flows
-- **Reusable fixtures** — driver setup/teardown handled centrally in `tests/conftest.py`
+- **Reusable fixtures** — driver lifecycle and per-page setup handled centrally in `tests/conftest.py`, so each test starts at the action
 - **Parametrized tests** — `@pytest.mark.parametrize` drives the checkbox and dropdown tests with multiple data sets from a single test function
 - **Screenshot on failure** — automatic capture via a PyTest hook for faster triage (output in `screenshots/`)
 
@@ -31,6 +32,7 @@ UI automation projects built with **Python + Selenium WebDriver**, structured ar
 pom_practice/
 ├── pages/
 │   ├── __init__.py
+│   ├── base_page.py
 │   ├── checkbox_page.py
 │   ├── dropdown_page.py
 │   └── dynamic_controls_page.py
