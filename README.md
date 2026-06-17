@@ -1,5 +1,7 @@
 # Selenium POM Automation Practice
 
+[![tests](https://github.com/akmaln/selenium-pom-automation/actions/workflows/tests.yml/badge.svg)](https://github.com/akmaln/selenium-pom-automation/actions/workflows/tests.yml)
+
 UI automation projects built with **Python + Selenium WebDriver**, structured around the **Page Object Model (POM)** pattern and run with **PyTest**. Tests target [the-internet.herokuapp.com](https://the-internet.herokuapp.com), a standard sandbox for web automation practice.
 
 ## Tech Stack
