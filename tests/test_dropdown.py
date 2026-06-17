@@ -1,12 +1,9 @@
-from pages.dropdown_page import DropdownPage
+
 import pytest
 
 @pytest.mark.parametrize("option", ["Option 1", "Option 2"])
-def test_dropdown(driver, option):
-    dropdown_page = DropdownPage(driver)
+def test_dropdown(dropdown, option):
 
-    dropdown_page.open()
+    dropdown.select_an_option(option)
 
-    dropdown_page.select_an_option(option)
-
-    assert dropdown_page.currently_selected_option() == option, f"Expected {option} to be selected"
+    assert dropdown.currently_selected_option() == option, f"Expected {option} to be selected"

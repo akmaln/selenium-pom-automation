@@ -1,6 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime
+from pages.dynamic_controls_page import DynamicControlsPage
+from pages.dropdown_page import DropdownPage
+from pages.checkbox_page import CheckboxPage
 import pytest
 import os
 
@@ -14,6 +17,24 @@ def driver():
     driver = webdriver.Chrome(options=options)
     yield driver
     driver.quit()
+
+@pytest.fixture
+def dynamic_controls(driver):
+    page = DynamicControlsPage(driver)
+    page.open()
+    return page
+
+@pytest.fixture
+def dropdown(driver):
+    page = DropdownPage(driver)
+    page.open()
+    return page
+
+@pytest.fixture
+def checkboxes(driver):
+    page = CheckboxPage(driver)
+    page.open()
+    return page
 
 @pytest.hookimpl(tryfirst=True, hookwrapper=True)
 def pytest_runtest_makereport(item, call):
