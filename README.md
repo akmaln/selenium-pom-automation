@@ -32,6 +32,9 @@ UI automation projects built with **Python + Selenium WebDriver**, structured ar
 
 ```
 pom_practice/
+├── .github/
+│   └── workflows/
+│       └── tests.yml
 ├── pages/
 │   ├── __init__.py
 │   ├── base_page.py
